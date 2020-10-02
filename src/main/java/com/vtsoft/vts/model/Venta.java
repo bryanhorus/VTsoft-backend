@@ -26,7 +26,7 @@ public class Venta {
     @Column(name = "total")
     private Integer total;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_v")
     private Instant fecha;
 
     public Venta() {
