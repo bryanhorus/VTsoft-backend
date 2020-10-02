@@ -1,10 +1,3 @@
-CREATE TABLE "venta" (
-  id_venta serial NOT NULL,
-  total INTEGER NOT NULL,
-  fecha_v timestamp without time zone NOT NULL,
-  fk_orden_id INTEGER NOT NULL,
-  PRIMARY KEY (id_venta));
-
 CREATE TABLE "orden" (
   id_orden serial NOT NULL,
   fecha timestamp without time zone NOT NULL,
@@ -19,6 +12,12 @@ CREATE TABLE "producto" (
   valor INTEGER NOT NULL,
   PRIMARY KEY (id_producto));
 
+  CREATE TABLE "venta" (
+  id_venta serial NOT NULL,
+  total INTEGER NOT NULL,
+  fecha_v timestamp without time zone NOT NULL,
+  fk_orden_id INTEGER NOT NULL,
+  PRIMARY KEY (id_venta));
 
     ALTER TABLE "venta" ADD CONSTRAINT fk_orden_id
     FOREIGN KEY (fk_orden_id)
@@ -27,3 +26,5 @@ CREATE TABLE "producto" (
     ALTER TABLE "orden" ADD CONSTRAINT fk_producto_id
     FOREIGN KEY (fk_producto_id)
     REFERENCES "producto" (id_producto);
+
+
