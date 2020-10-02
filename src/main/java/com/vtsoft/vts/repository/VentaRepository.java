@@ -9,9 +9,11 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
 
     @Query(nativeQuery = true, value = "SELECT " +
             "id_Venta, " +
-            "FROM antena " +
+            "total, " +
+            "fecha_v, " +
+            "fk_orden_id " +
+            "FROM venta " +
             "WHERE id_Venta =:idVenta")
     Venta findByIdVenta(@Param(value = "idVenta") Long idVenta);
-
 
 }

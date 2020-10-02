@@ -6,9 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "orden")
@@ -25,9 +26,9 @@ public class Orden {
     @Column(name = "fecha")
     private Instant fecha;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "fk_producto_id", referencedColumnName = "id_producto")
-    private Producto producto;
+    private List<Producto> producto;
 
     public Orden() {
         //constructor
@@ -57,11 +58,11 @@ public class Orden {
         this.fecha = fecha;
     }
 
-    public Producto getProducto() {
+    public List<Producto> getProducto() {
         return producto;
     }
 
-    public void setProducto(Producto producto) {
+    public void setProducto(List<Producto> producto) {
         this.producto = producto;
     }
 }

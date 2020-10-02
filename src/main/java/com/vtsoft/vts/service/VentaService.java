@@ -41,7 +41,4 @@ public class VentaService {
         ventaRepository.deleteById(id);
     }
 
-    /*public Antenna findByTorreId(Long idTorre){
-        return antennaRepository.findByTorreId(idTorre);
-    }*/
 }
