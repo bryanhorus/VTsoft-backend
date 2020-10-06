@@ -3,7 +3,6 @@ package com.vtsoft.vts.model.request;
 import com.vtsoft.vts.model.Producto;
 
 import java.time.Instant;
-import java.util.List;
 
 public class  OrdenRequest {
 
@@ -14,7 +13,9 @@ public class  OrdenRequest {
 
     private Instant fecha;
 
-    private List<Producto> producto;
+    private Integer cantidad;
+
+    private Producto producto;
 
     public OrdenRequest() {
         //constructor
@@ -44,11 +45,19 @@ public class  OrdenRequest {
         this.fecha = fecha;
     }
 
-    public List<Producto> getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setProducto(List<Producto> producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 }

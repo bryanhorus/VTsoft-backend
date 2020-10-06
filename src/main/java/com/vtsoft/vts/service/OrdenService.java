@@ -25,6 +25,7 @@ public class OrdenService {
     public Orden updateOrden(Orden orden){
         return  ordenRepository.save(orden);
     }
+
     public List<Orden> getAllOrden(){
         return ordenRepository.findAll();
     }

@@ -3,14 +3,15 @@ package com.vtsoft.vts.model.request;
 import com.vtsoft.vts.model.Orden;
 
 import java.time.Instant;
+import java.util.List;
 
 public class VentaRequest {
 
     private Long idVenta;
 
-    private Orden orden;
+    private List<Orden> orden;
 
-    private Integer total;
+    private Double total;
 
     private Instant fecha;
 
@@ -26,19 +27,19 @@ public class VentaRequest {
         this.idVenta = idVenta;
     }
 
-    public Orden getOrden() {
+    public List<Orden> getOrden() {
         return orden;
     }
 
-    public void setOrden(Orden orden) {
+    public void setOrden(List<Orden> orden) {
         this.orden = orden;
     }
 
-    public Integer getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 

@@ -1,14 +1,18 @@
 package com.vtsoft.vts.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "venta")
@@ -19,18 +23,18 @@ public class Venta {
     @Column(name = "id_venta")
     private Long idVenta;
 
-    @OneToOne
-    @JoinColumn(name = "fk_orden_id", referencedColumnName = "id_orden")
-    private Orden orden;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_orden")
+    List<Orden> orden;
 
     @Column(name = "total")
-    private Integer total;
+    private Double total;
 
     @Column(name = "fecha_v")
     private Instant fecha;
 
     public Venta() {
-        //constructor
+        orden = new ArrayList<Orden>();
     }
 
     public Long getIdVenta() {
@@ -41,19 +45,23 @@ public class Venta {
         this.idVenta = idVenta;
     }
 
-    public Orden getOrden() {
+    public List<Orden> getOrden() {
         return orden;
     }
 
-    public void setOrden(Orden orden) {
+    public void addOrden(Orden item){
+        orden.add(item);
+    }
+
+    public void setOrden(List<Orden> orden) {
         this.orden = orden;
     }
 
-    public Integer getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
@@ -63,5 +71,15 @@ public class Venta {
 
     public void setFecha(Instant fecha) {
         this.fecha = fecha;
+    }
+
+
+
+    public Double getTotalv(){
+
+        for (Orden ordenproducto : orden) {
+            total += ordenproducto.calcularImporte();
+        }
+        return total;
     }
 }

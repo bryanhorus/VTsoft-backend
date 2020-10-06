@@ -1,6 +1,5 @@
 package com.vtsoft.vts.service;
 
-import com.vtsoft.vts.model.Orden;
 import com.vtsoft.vts.model.Venta;
 import com.vtsoft.vts.repository.OrdenRepository;
 import com.vtsoft.vts.repository.VentaRepository;
@@ -19,8 +18,6 @@ public class VentaService {
     private OrdenRepository ordenRepository;
 
     public Venta saveVenta(Venta venta){
-       Orden orden = ordenRepository.getByIdOrden(venta.getOrden().getIdOrden());
-       venta.setOrden(orden);
 
         return ventaRepository.save(venta);
     }

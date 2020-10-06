@@ -8,7 +8,9 @@ public class ProductoRequest {
 
     private Integer cantidad;
 
-    private Integer valor;
+    private Double valor;
+
+    private String imgurl;
 
     public ProductoRequest() {
         //constructor
@@ -38,11 +40,19 @@ public class ProductoRequest {
         this.cantidad = cantidad;
     }
 
-    public Integer getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 }

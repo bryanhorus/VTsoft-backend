@@ -5,9 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
 @Table(name = "producto")
@@ -25,10 +23,10 @@ public class Producto {
     private Integer cantidad;
 
     @Column(name = "valor")
-    private Integer valor;
+    private Double valor;
 
-    @ManyToMany(mappedBy = "producto")
-    private List<Orden> orden;
+    @Column(name = "img_url")
+    private String imgurl;
 
 
     public Producto() {
@@ -59,11 +57,19 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
-    public Integer getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 }
