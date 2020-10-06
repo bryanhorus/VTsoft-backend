@@ -1,7 +1,6 @@
 package com.vtsoft.vts.service;
 
 import com.vtsoft.vts.model.Orden;
-import com.vtsoft.vts.model.Producto;
 import com.vtsoft.vts.repository.OrdenRepository;
 import com.vtsoft.vts.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ public class OrdenService {
     private ProductoRepository productoRepository;
 
     public Orden saveOrden(Orden orden){
-        List<Producto> producto = (List<Producto>) productoRepository.getByIdProducto(orden.getProducto().stream().count());
-        orden.setProducto(producto);
 
         return ordenRepository.save(orden);
     }

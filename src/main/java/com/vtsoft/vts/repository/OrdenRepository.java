@@ -8,12 +8,12 @@ import org.springframework.data.repository.query.Param;
 public interface OrdenRepository  extends JpaRepository<Orden , Long> {
 
     @Query(nativeQuery = true, value = "SELECT " +
-            "id_Orden, " +
+            "id_orden, " +
             "estado, " +
             "fecha, " +
             "fk_producto_id " +
             "FROM orden " +
-            "WHERE id_Orden =:idOrden")
+            "WHERE id_orden =:idOrden")
     Orden findByIdOrden(@Param(value = "idOrden") Long idOrden);
 
     Orden getByIdOrden(Long id);

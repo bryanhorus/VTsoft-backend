@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "producto")
@@ -24,6 +26,10 @@ public class Producto {
 
     @Column(name = "valor")
     private Integer valor;
+
+    @ManyToMany(mappedBy = "producto")
+    private List<Orden> orden;
+
 
     public Producto() {
         //constructor

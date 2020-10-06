@@ -2,10 +2,12 @@ package com.vtsoft.vts.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.time.Instant;
@@ -26,9 +28,13 @@ public class Orden {
     @Column(name = "fecha")
     private Instant fecha;
 
-    @ManyToMany
-    @JoinColumn(name = "fk_producto_id", referencedColumnName = "id_producto")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "orden_producto",
+            joinColumns = @JoinColumn(name = "fk_orden", nullable = false),
+            inverseJoinColumns = @JoinColumn(name="fk_producto", nullable = false))
     private List<Producto> producto;
+
 
     public Orden() {
         //constructor
