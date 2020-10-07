@@ -57,12 +57,12 @@ public class Venta {
         this.orden = orden;
     }
 
-    public Double getTotal() {
-        return total;
-    }
-
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public Double getTotal() {
+        return total;
     }
 
     public Instant getFecha() {
@@ -72,8 +72,6 @@ public class Venta {
     public void setFecha(Instant fecha) {
         this.fecha = fecha;
     }
-
-
 
     public Double getTotalv(){
 
