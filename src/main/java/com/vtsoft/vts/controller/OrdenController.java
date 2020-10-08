@@ -80,7 +80,7 @@ public class OrdenController {
             @ApiResponse(code = 401, message = "Access denied"),
             @ApiResponse(code = 404, message = "The table doesn't exist"),
             @ApiResponse(code = 401, message = "Expired or invalid JWT token")})
-    public Orden findByIdVenta(@RequestParam(name = "idOrden") Long idOrden) throws Exception{
+    public Orden findByIdOrden(@RequestParam(name = "idOrden") Long idOrden) throws Exception{
         Orden orden = ordenService.findByIdOrden(idOrden);
         if (orden == null){
             throw  new ModelNotFoundException("La orden que desea buscar no existe");
@@ -94,7 +94,7 @@ public class OrdenController {
             @ApiResponse(code = 401, message = "Access denied"),
             @ApiResponse(code = 404, message = "The table doesn't exist"),
             @ApiResponse(code = 401, message = "Expired or invalid JWT token")})
-    public void deleteVenta(@RequestParam(name = "id") Long id) {
+    public void deleteOrden(@RequestParam(name = "id") Long id) {
         Orden orden = ordenService.findByIdOrden(id);
         if(orden==null){
             throw new ModelNotFoundException("La orden que desea eliminar no existe");

@@ -2,10 +2,11 @@ package com.vtsoft.vts.model.request;
 
 import com.vtsoft.vts.model.Orden;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.List;
 
-public class VentaRequest {
+public class VentaRequest implements Serializable {
 
     private Long idVenta;
 
