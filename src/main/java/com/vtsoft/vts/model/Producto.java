@@ -28,7 +28,6 @@ public class Producto {
     @Column(name = "img_url")
     private String imgurl;
 
-
     public Producto() {
         //constructor
     }

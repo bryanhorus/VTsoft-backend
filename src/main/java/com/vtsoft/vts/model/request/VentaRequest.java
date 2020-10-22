@@ -2,15 +2,13 @@ package com.vtsoft.vts.model.request;
 
 import com.vtsoft.vts.model.Orden;
 
-import java.io.Serializable;
 import java.time.Instant;
-import java.util.List;
 
-public class VentaRequest implements Serializable {
+public class VentaRequest {
 
     private Long idVenta;
 
-    private List<Orden> orden;
+    private Orden orden;
 
     private Double total;
 
@@ -28,11 +26,11 @@ public class VentaRequest implements Serializable {
         this.idVenta = idVenta;
     }
 
-    public List<Orden> getOrden() {
+    public Orden getOrden() {
         return orden;
     }
 
-    public void setOrden(List<Orden> orden) {
+    public void setOrden(Orden orden) {
         this.orden = orden;
     }
 

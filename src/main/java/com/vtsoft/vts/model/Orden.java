@@ -1,16 +1,16 @@
 package com.vtsoft.vts.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.Set;
 
 @Entity
 @Table(name = "orden")
@@ -30,10 +30,11 @@ public class Orden {
     @Column(name = "cant")
     private Integer cantidad;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_producto")
-    private Producto producto;
-
+    @ManyToMany
+    @JoinTable(name = "orden_producto"
+    ,joinColumns = @JoinColumn(name = "fk_orden")
+    ,inverseJoinColumns = @JoinColumn(name = "fk_producto"))
+    private Set<Producto> producto;
 
     public Orden() {
         //constructor
@@ -63,17 +64,18 @@ public class Orden {
         this.fecha = fecha;
     }
 
-    public Producto getProducto() {
+
+    public Set<Producto> getProducto() {
         return producto;
     }
 
-    public void setProducto(Producto producto) {
+    public void setProducto(Set<Producto> producto) {
         this.producto = producto;
     }
 
-    public Double calcularImporte(){
+    /*public Double calcularImporte(){
         return cantidad.doubleValue() * producto.getValor();
-    }
+    }*/
 
     public Integer getCantidad() {
         return cantidad;
