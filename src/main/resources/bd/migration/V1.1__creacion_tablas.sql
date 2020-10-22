@@ -2,7 +2,6 @@ CREATE TABLE "orden" (
   id_orden serial NOT NULL,
   fecha timestamp without time zone NOT NULL,
   estado VARCHAR(45) NOT NULL,
-  id_producto INTEGER NOT NULL,
   cant INTEGER NOT NULL,
   PRIMARY KEY (id_orden));
 
@@ -25,8 +24,5 @@ CREATE TABLE "producto" (
     FOREIGN KEY (fk_orden_id)
     REFERENCES "orden" (id_orden);
 
-    ALTER TABLE "orden" ADD CONSTRAINT fk_producto_id
-    FOREIGN KEY (id_producto)
-    REFERENCES "producto" (id_producto);
 
 

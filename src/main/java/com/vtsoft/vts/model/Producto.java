@@ -28,6 +28,7 @@ public class Producto {
     @Column(name = "img_url")
     private String imgurl;
 
+
     public Producto() {
         //constructor
     }
@@ -63,6 +64,7 @@ public class Producto {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
 
     public String getImgurl() {
         return imgurl;

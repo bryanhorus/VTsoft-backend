@@ -12,6 +12,7 @@ public class ProductoRequest {
 
     private String imgurl;
 
+
     public ProductoRequest() {
         //constructor
     }
@@ -55,4 +56,5 @@ public class ProductoRequest {
     public void setImgurl(String imgurl) {
         this.imgurl = imgurl;
     }
+
 }
