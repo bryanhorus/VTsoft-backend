@@ -65,11 +65,8 @@ public class Venta {
         this.fecha = fecha;
     }
 
-   /* public Double getTotalv(){
+    /*public Double getTotalv(){
 
-        for (Orden ordenproducto : orden) {
-            total += ordenproducto.calcularImporte();
-        }
-        return total;
+        return total += orden.calcularImporte();
     }*/
 }

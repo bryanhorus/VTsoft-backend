@@ -36,6 +36,8 @@ public class Orden {
     ,inverseJoinColumns = @JoinColumn(name = "fk_producto"))
     private Set<Producto> producto;
 
+
+
     public Orden() {
         //constructor
     }
@@ -73,8 +75,13 @@ public class Orden {
         this.producto = producto;
     }
 
-    /*public Double calcularImporte(){
-        return cantidad.doubleValue() * producto.getValor();
+   /* public Double calcularImporte(){
+
+        for (Producto product : producto) {
+
+            importe = cantidad.doubleValue() * product.getValor();
+        }
+        return importe ;
     }*/
 
     public Integer getCantidad() {
